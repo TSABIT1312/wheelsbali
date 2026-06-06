@@ -1,26 +1,253 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+@custom-variant dark (&:is(.dark *));
+
+/* ── Skip link ──────────────────────────────────────────────── */
+.skip-link {
+  position: absolute;
+  left: -9999px;
+  top: 8px;
+  z-index: 9999;
+  padding: 8px 20px;
+  background: #0A0A0A;
+  color: #FFFFFF;
+  font-size: 13px;
+  font-weight: 500;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-family: var(--font-barlow), sans-serif;
+}
+.skip-link:focus {
+  left: 8px;
+}
+
+/* ── Focus styles ──────────────────────────────────────────── */
+:focus-visible {
+  outline: 2px solid #0A0A0A;
+  outline-offset: 3px;
+}
+
+/* ── Skeleton animation ────────────────────────────────────── */
+@keyframes sk-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.45; }
+}
+.skeleton {
+  background: #EBEBEB;
+  animation: sk-pulse 1.6s ease-in-out infinite;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+  --font-condensed: var(--font-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+:root {
+  --background: #FFFFFF;
+  --foreground: #0A0A0A;
+  --black: #0A0A0A;
+  --white: #FFFFFF;
+  --gray-light: #F5F5F5;
+  --gray-mid: #E0E0E0;
+  --gray-text: #777777;
+  --gray-dark: #333333;
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
+  html {
+    scroll-behavior: smooth;
+    font-family: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+    font-weight: 400;
+    color: var(--black);
+    background: var(--white);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    min-height: 100vh;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+/* Responsive overrides */
+@media (max-width: 900px) {
+  .contact-grid {
+    grid-template-columns: 1fr !important;
+    gap: 48px !important;
+  }
+  .req-grid {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 768px) {
+  .form-row {
+    grid-template-columns: 1fr !important;
+  }
+  .bike-detail-hero {
+    grid-template-columns: 1fr !important;
+    gap: 32px !important;
+  }
+}
+
+.bike-detail-hero {
+  grid-template-columns: 1fr 420px;
+  gap: 64px;
+}
+
+/* Hover backgrounds for server-rendered links (no JS event handlers) */
+.hover-bg-f5:hover { background: #F5F5F5 !important; }
+.hover-bg-f9:hover { background: #F9F9F9 !important; }
+
+/* ─── Admin responsive (320 / 375 / 768 / 1024 breakpoints) ─────────── */
+
+/* Sidebar offset: desktop >=1024px gets 240px margin, mobile gets none */
+.admin-main { margin-left: 240px; }
+@media (max-width: 1023px) {
+  .admin-main { margin-left: 0; }
+}
+
+/* Main content padding */
+.admin-content { padding: 40px 40px 80px; }
+@media (max-width: 767px) {
+  .admin-content { padding: 24px 16px 56px; }
+}
+
+/* Header padding */
+.admin-header { padding: 0 40px; }
+@media (max-width: 767px) {
+  .admin-header { padding: 0 16px; }
+}
+
+/* Sidebar drawer behavior */
+.admin-sidebar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 240px;
+  height: 100vh;
+  z-index: 100;
+  transition: transform 0.25s ease;
+  will-change: transform;
+}
+@media (max-width: 1023px) {
+  .admin-sidebar { transform: translateX(-100%); }
+  .admin-sidebar.is-open { transform: translateX(0); }
+}
+
+/* Sidebar backdrop */
+.admin-backdrop {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.25s ease;
+}
+@media (max-width: 1023px) {
+  .admin-backdrop { display: block; }
+  .admin-backdrop.is-open { opacity: 1; pointer-events: auto; }
+}
+
+/* Hamburger button — only on mobile */
+.admin-hamburger { display: none; }
+@media (max-width: 1023px) {
+  .admin-hamburger {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    margin-right: 12px;
+    background: transparent;
+    border: 1px solid #E0E0E0;
+    color: #0A0A0A;
+    cursor: pointer;
+    padding: 0;
+  }
+}
+
+/* Page H1 shrinks on mobile */
+.admin-h1 { font-size: 42px; }
+@media (max-width: 767px) {
+  .admin-h1 { font-size: 32px; }
+}
+@media (max-width: 374px) {
+  .admin-h1 { font-size: 26px; }
+}
+
+/* Dashboard 4-col stats → 2-col on mobile */
+.admin-stats-4 { display: grid; grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 767px) {
+  .admin-stats-4 { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Dashboard 3-col quick links → 1-col on mobile */
+.admin-quick-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+@media (max-width: 767px) {
+  .admin-quick-3 { grid-template-columns: 1fr; }
+}
+
+/* Tables: horizontal scroll on mobile */
+.admin-table-scroll { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+.admin-table-inner { min-width: 720px; }
+
+/* Filter tabs wrap onto multiple lines on mobile */
+.admin-filter-row { display: flex; gap: 1px; flex-wrap: wrap; }
+
+/* Booking-detail info row stacks on mobile */
+.admin-info-row { display: grid; grid-template-columns: 160px 1fr; gap: 16px; }
+@media (max-width: 767px) {
+  .admin-info-row { grid-template-columns: 1fr; gap: 4px; }
+}
+
+/* Image uploader 4-col → 2-col on mobile */
+.admin-image-grid { display: grid; grid-template-columns: repeat(4, 1fr); }
+@media (max-width: 767px) {
+  .admin-image-grid { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* Generic 2-col form grid that collapses on mobile (same as .form-row but admin-scoped) */
+.admin-form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+@media (max-width: 767px) {
+  .admin-form-2col { grid-template-columns: 1fr; }
+}
+
+/* MotorcycleForm pricing: 3-col → 1-col on mobile */
+.admin-form-3col { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+@media (max-width: 767px) {
+  .admin-form-3col { grid-template-columns: 1fr; }
+}
+
+/* BookingDetailsForm price+save: 200px 1fr → stacked on mobile */
+.admin-form-price { display: grid; grid-template-columns: 200px 1fr; gap: 16px; }
+@media (max-width: 767px) {
+  .admin-form-price { grid-template-columns: 1fr; }
+}
+
+/* Hide on small mobile (for less critical labels) */
+@media (max-width: 374px) {
+  .admin-hide-xs { display: none !important; }
+}
+
+/* Admin cards/panels — tighten padding on mobile */
+.admin-card { padding: 24px 28px; }
+@media (max-width: 767px) {
+  .admin-card { padding: 18px 16px; }
+}
+
+.admin-panel { padding: 32px 32px 36px; }
+@media (max-width: 767px) {
+  .admin-panel { padding: 20px 16px 24px; }
 }

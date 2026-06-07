@@ -137,6 +137,33 @@ export default function Footer() {
               </li>
             ))}
           </ul>
+          <a
+            href="https://maps.google.com/?q=Jl.+Gunung+Lumut+No.188D,+Padangsambian+Klod,+Denpasar+Barat,+Bali+80117"
+            target="_blank"
+            rel="noopener noreferrer"
+            style={{
+              display: "block",
+              fontSize: 13,
+              color: "rgba(255,255,255,0.5)",
+              textDecoration: "none",
+              fontWeight: 300,
+              lineHeight: 1.6,
+              maxWidth: 220,
+              marginTop: 4,
+              transition: "color 0.2s",
+            }}
+            onMouseEnter={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "#fff")
+            }
+            onMouseLeave={(e) =>
+              ((e.currentTarget as HTMLElement).style.color = "rgba(255,255,255,0.5)")
+            }
+          >
+            Jl. Gunung Lumut No.188D,<br />
+            Padangsambian Klod,<br />
+            Kec. Denpasar Bar.,<br />
+            Kota Denpasar, Bali 80117
+          </a>
         </div>
       </div>
 
@@ -152,7 +179,7 @@ export default function Footer() {
         }}
       >
         <span style={{ fontSize: 12 }}>© {new Date().getFullYear()} Wheels Bali. All rights reserved.</span>
-        <span style={{ fontSize: 12 }}>Bali, Indonesia</span>
+        <span style={{ fontSize: 12 }}>Denpasar, Bali, Indonesia</span>
       </div>
     </footer>
   );

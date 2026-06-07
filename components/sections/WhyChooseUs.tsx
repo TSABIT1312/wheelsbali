@@ -10,8 +10,8 @@ const reasons = [
   },
   {
     num: "02",
-    title: "Free delivery & pickup",
-    desc: "We bring the bike to you and collect it when you're done. No need to go anywhere.",
+    title: "Delivery & pickup depends on location",
+    desc: "We bring the bike to you and collect it when you're done. Delivery fee depends on your location.",
   },
   {
     num: "03",

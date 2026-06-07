@@ -41,6 +41,7 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
     >
       {/* Top tag */}
       <div
+        className="hero-tag-wrap"
         style={{
           position: "absolute",
           top: 0,
@@ -49,15 +50,14 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
           display: "flex",
           alignItems: "center",
           justifyContent: "flex-end",
-          padding: "40px 6vw",
         }}
       >
         <span
+          className="hero-tag"
           style={{
-            fontSize: 12,
-            letterSpacing: "0.12em",
             textTransform: "uppercase",
             color: "#777777",
+            whiteSpace: "nowrap",
           }}
         >
           Bali&apos;s trusted motorbike rental

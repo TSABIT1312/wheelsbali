@@ -251,3 +251,41 @@
 @media (max-width: 767px) {
   .admin-panel { padding: 20px 16px 24px; }
 }
+
+/* Hero top tag ("Bali's trusted motorbike rental") — shrink on mobile */
+.hero-tag {
+  font-size: 12px;
+  letter-spacing: 0.12em;
+}
+@media (max-width: 767px) {
+  .hero-tag {
+    font-size: 10px;
+    letter-spacing: 0.08em;
+  }
+}
+@media (max-width: 374px) {
+  .hero-tag {
+    font-size: 9px;
+    letter-spacing: 0.06em;
+  }
+}
+.hero-tag-wrap {
+  padding: 40px 6vw;
+}
+@media (max-width: 767px) {
+  .hero-tag-wrap {
+    padding: 20px 0;
+  }
+}
+
+/* Fix mobile-only overlap between Hero subtitle tag and main heading.
+   On mobile, take the tag out of absolute positioning and flow naturally
+   from the top, instead of bottom-anchoring the heading at 90vh. */
+@media (max-width: 768px) {
+  .hero-tag-wrap { position: static !important; }
+  #home {
+    min-height: auto !important;
+    justify-content: flex-start !important;
+    padding-bottom: 48px !important;
+  }
+}

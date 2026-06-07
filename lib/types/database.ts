@@ -256,6 +256,47 @@ export type Database = {
         Relationships: []
       }
 
+      // ── merchandise ───────────────────────────────
+      merchandise: {
+        Row: {
+          id: string
+          name: string
+          price: number
+          image_url: string
+          description: string | null
+          badge: string | null
+          is_published: boolean
+          sort_order: number
+          created_at: string
+          updated_at: string
+        }
+        Insert: {
+          id?: string
+          name: string
+          price: number
+          image_url: string
+          description?: string | null
+          badge?: string | null
+          is_published?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Update: {
+          id?: string
+          name?: string
+          price?: number
+          image_url?: string
+          description?: string | null
+          badge?: string | null
+          is_published?: boolean
+          sort_order?: number
+          created_at?: string
+          updated_at?: string
+        }
+        Relationships: []
+      }
+
       // ── content_gallery ───────────────────────────
       content_gallery: {
         Row: {
@@ -338,6 +379,10 @@ export type ContentFAQUpdate = TablesUpdate<'content_faq'>
 export type ContentGallery       = Tables<'content_gallery'>
 export type ContentGalleryInsert = TablesInsert<'content_gallery'>
 export type ContentGalleryUpdate = TablesUpdate<'content_gallery'>
+
+export type Merchandise       = Tables<'merchandise'>
+export type MerchandiseInsert = TablesInsert<'merchandise'>
+export type MerchandiseUpdate = TablesUpdate<'merchandise'>
 
 // ────────────────────────────────────────────────────────────
 // Enum-like string unions (match DB CHECK constraints)

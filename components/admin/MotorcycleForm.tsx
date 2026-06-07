@@ -8,11 +8,6 @@ import {
 import type { MotorcycleFormState } from '@/actions/motorcycles'
 import type { Motorcycle } from '@/lib/types/database'
 
-const CATEGORY_OPTIONS = [
-  { value: 'automatic', label: 'Automatic' },
-  { value: 'large_scooter', label: 'Large Scooter' },
-  { value: 'trail', label: 'Trail' },
-]
 
 const baseInput: React.CSSProperties = {
   display: 'block',
@@ -33,10 +28,12 @@ const baseInput: React.CSSProperties = {
 function Field({
   label,
   error,
+  hint,
   children,
 }: {
   label: string
   error?: string[]
+  hint?: string
   children: React.ReactNode
 }) {
   return (
@@ -55,6 +52,9 @@ function Field({
         {label}
       </div>
       {children}
+      {hint && !error?.[0] && (
+        <div style={{ fontSize: 11, color: '#777777', marginTop: 4 }}>{hint}</div>
+      )}
       {error?.[0] && (
         <div style={{ fontSize: 12, color: '#ef4444', marginTop: 4 }}>
           {error[0]}
@@ -165,27 +165,26 @@ export default function MotorcycleForm({
       </Field>
 
       <div className="admin-form-2col">
-        <Field label="Category *" error={err.category}>
-          <select
+        <Field
+          label="Category *"
+          error={err.category}
+          hint="automatic · large_scooter · trail"
+        >
+          <input
+            type="text"
             name="category"
             defaultValue={motorcycle?.category ?? ''}
+            placeholder="e.g. automatic"
+            required
             style={{
               ...baseInput,
               borderColor: inputBorderColor(!!err.category),
-              cursor: 'pointer',
             }}
             onFocus={(e) => (e.currentTarget.style.borderColor = '#0A0A0A')}
             onBlur={(e) =>
               (e.currentTarget.style.borderColor = inputBorderColor(!!err.category))
             }
-          >
-            <option value="">Select category</option>
-            {CATEGORY_OPTIONS.map((opt) => (
-              <option key={opt.value} value={opt.value}>
-                {opt.label}
-              </option>
-            ))}
-          </select>
+          />
         </Field>
 
         <Field label="Tag">

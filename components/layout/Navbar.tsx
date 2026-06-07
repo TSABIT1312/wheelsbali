@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 
-const WA_NUMBER = "628123456789";
+const WA_NUMBER = "6281387070350";
 const WA_URL = `https://wa.me/${WA_NUMBER}`;
 
 const navLinks = [
@@ -52,18 +53,14 @@ export default function Navbar() {
           color: "#0A0A0A",
         }}
       >
-        <span
-          style={{
-            fontFamily: "var(--font-barlow-condensed), sans-serif",
-            fontWeight: 800,
-            fontStyle: "italic",
-            fontSize: 22,
-            letterSpacing: "-0.02em",
-            color: "#0A0A0A",
-          }}
-        >
-          WHEELS BALI
-        </span>
+        <Image
+          src="/logo-wheelbali.png"
+          alt="Wheels Bali"
+          width={140}
+          height={48}
+          style={{ objectFit: "contain" }}
+          priority
+        />
       </Link>
 
       {/* Desktop Nav */}

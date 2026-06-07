@@ -5,7 +5,7 @@ import Image from "next/image";
 import { motion } from "framer-motion";
 import type { MotorcycleWithImages } from "@/lib/types/database";
 
-const WA_NUMBER = "628123456789";
+const WA_NUMBER = "6281387070350";
 
 const CATEGORY_EMOJI: Record<string, string> = {
   automatic: "🛵",

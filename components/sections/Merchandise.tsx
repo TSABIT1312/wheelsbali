@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import type { Merchandise } from "@/lib/types/database";
 
-const WA_NUMBER = "628123456789";
+const WA_NUMBER = "6281387070350";
 
 const containerVariants = {
   hidden: {},

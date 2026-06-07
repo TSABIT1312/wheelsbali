@@ -7,7 +7,7 @@ import type { MotorcycleWithImages } from '@/lib/types/database'
 
 export const revalidate = 3600
 
-const WA_NUMBER = '628123456789'
+const WA_NUMBER = '6281387070350'
 
 const CATEGORY_LABEL: Record<string, string> = {
   automatic: 'Automatic Scooter',

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 
 const navLinks = [
   { label: "Our Fleet", href: "#fleet" },
@@ -12,7 +13,7 @@ const navLinks = [
 ];
 
 const contactLinks = [
-  { label: "WhatsApp: +62 812-3456-7890", href: "https://wa.me/628123456789" },
+  { label: "WhatsApp: +62 813-8707-0350", href: "https://wa.me/6281387070350" },
   { label: "Inquiry Form", href: "#contact" },
 ];
 
@@ -38,20 +39,13 @@ export default function Footer() {
       >
         {/* Logo & Tagline */}
         <div>
-          <span
-            style={{
-              fontFamily: "var(--font-barlow-condensed), sans-serif",
-              fontWeight: 800,
-              fontStyle: "italic",
-              fontSize: 20,
-              letterSpacing: "-0.02em",
-              color: "#FFFFFF",
-              display: "block",
-              marginBottom: 12,
-            }}
-          >
-            WHEELS BALI
-          </span>
+          <Image
+            src="/logo-wheelbali.png"
+            alt="Wheels Bali"
+            width={140}
+            height={48}
+            style={{ objectFit: "contain", filter: "invert(1)", marginBottom: 12 }}
+          />
           <p style={{ fontSize: 13, maxWidth: 200, lineHeight: 1.6, fontWeight: 300 }}>
             Your trusted motorbike and scooter rental in Bali. Delivering freedom, one ride at a time.
           </p>

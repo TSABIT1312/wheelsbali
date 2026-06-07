@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 
-const WA_NUMBER = "628123456789";
+const WA_NUMBER = "6281387070350";
 
 const inputStyle: React.CSSProperties = {
   width: "100%",
@@ -126,7 +126,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
               {
                 icon: "💬",
                 title: "WhatsApp (fastest)",
-                sub: "+62 812-3456-7890 · Replies in under 30 min",
+                sub: "+62 813-8707-0350 · Replies in under 30 min",
                 href: `https://wa.me/${WA_NUMBER}`,
               },
               {

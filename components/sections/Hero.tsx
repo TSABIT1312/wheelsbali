@@ -3,7 +3,7 @@
 import { motion } from "framer-motion";
 import type { ContentHero, HeroStat } from "@/lib/types/database";
 
-const WA_URL = "https://wa.me/628123456789";
+const WA_URL = "https://wa.me/6281387070350";
 
 const DEFAULT_HEADING = ["Exciting", "Ride in", "Bali."];
 const DEFAULT_SUBTEXT =

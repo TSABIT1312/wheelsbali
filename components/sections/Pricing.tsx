@@ -30,26 +30,11 @@ const monthlyRows = [
   { bike: "Trail / Adventure (150cc+)", rate: "IDR 2,200,000", saving: "Save 51%" },
 ];
 
-const thStyle: React.CSSProperties = {
-  background: "#0A0A0A",
-  color: "#FFFFFF",
-  padding: "14px 20px",
-  textAlign: "left",
-  fontSize: 11,
-  letterSpacing: "0.12em",
-  textTransform: "uppercase",
-  fontWeight: 500,
-};
-
-const tdStyle: React.CSSProperties = {
-  padding: "14px 20px",
-  borderBottom: "1px solid #E0E0E0",
-  fontSize: 14,
-  color: "#0A0A0A",
-};
-
 export default function Pricing() {
   const [activeTab, setActiveTab] = useState<Tab>("daily");
+
+  const rows =
+    activeTab === "daily" ? dailyRows : activeTab === "weekly" ? weeklyRows : monthlyRows;
 
   return (
     <section
@@ -57,41 +42,20 @@ export default function Pricing() {
       style={{
         padding: "88px 6vw",
         background: "#F5F5F5",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       {/* Header */}
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         Rental plans
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 12,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 12 }}>
         Simple, honest pricing.
       </h2>
-      <p style={{ fontSize: 16, color: "#333333", fontWeight: 300, maxWidth: 500, lineHeight: 1.75, marginBottom: 40 }}>
+      <p
+        className="type-body"
+        style={{ color: "#333333", maxWidth: 500, marginBottom: 40 }}
+      >
         The longer you rent, the more you save. Monthly is our best value for long-stay visitors and digital nomads.
       </p>
 
@@ -107,18 +71,14 @@ export default function Pricing() {
           <button
             key={tab.id}
             onClick={() => setActiveTab(tab.id)}
+            className="type-btn-sm"
             style={{
               padding: "11px 28px",
               border: "none",
               borderRight: i < tabs.length - 1 ? "1px solid #E0E0E0" : "none",
               background: activeTab === tab.id ? "#0A0A0A" : "transparent",
               color: activeTab === tab.id ? "#FFFFFF" : "#777777",
-              fontSize: 12,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              fontWeight: 500,
               cursor: "pointer",
-              fontFamily: "var(--font-barlow), sans-serif",
               transition: "all 0.15s",
             }}
           >
@@ -147,81 +107,105 @@ export default function Pricing() {
             >
               <thead>
                 <tr>
-                  <th style={thStyle}>Bike Type</th>
-                  <th style={thStyle}>
+                  <th
+                    className="type-th"
+                    style={{
+                      background: "#0A0A0A",
+                      color: "#FFFFFF",
+                      padding: "14px 20px",
+                      textAlign: "left",
+                    }}
+                  >
+                    Bike Type
+                  </th>
+                  <th
+                    className="type-th"
+                    style={{
+                      background: "#0A0A0A",
+                      color: "#FFFFFF",
+                      padding: "14px 20px",
+                      textAlign: "left",
+                    }}
+                  >
                     {activeTab === "daily" ? "Daily Rate" : activeTab === "weekly" ? "Weekly Rate" : "Monthly Rate"}
                   </th>
-                  <th style={thStyle}>
+                  <th
+                    className="type-th"
+                    style={{
+                      background: "#0A0A0A",
+                      color: "#FFFFFF",
+                      padding: "14px 20px",
+                      textAlign: "left",
+                    }}
+                  >
                     {activeTab === "daily" ? "Includes" : "Saving vs Daily"}
                   </th>
                 </tr>
               </thead>
               <tbody>
-                {(activeTab === "daily" ? dailyRows : activeTab === "weekly" ? weeklyRows : monthlyRows).map(
-                  (row, i) => (
-                    <tr
-                      key={i}
-                      style={{ transition: "background 0.15s" }}
-                      onMouseEnter={(e) =>
-                        ((e.currentTarget as HTMLElement).style.background = "#F5F5F5")
-                      }
-                      onMouseLeave={(e) =>
-                        ((e.currentTarget as HTMLElement).style.background = "transparent")
-                      }
+                {rows.map((row, i) => (
+                  <tr
+                    key={i}
+                    style={{ transition: "background 0.15s" }}
+                    onMouseEnter={(e) =>
+                      ((e.currentTarget as HTMLElement).style.background = "#F5F5F5")
+                    }
+                    onMouseLeave={(e) =>
+                      ((e.currentTarget as HTMLElement).style.background = "transparent")
+                    }
+                  >
+                    <td
+                      className="type-small"
+                      style={{
+                        padding: "14px 20px",
+                        borderBottom: i === rows.length - 1 ? "none" : "1px solid #E0E0E0",
+                        color: "#0A0A0A",
+                      }}
                     >
-                      <td style={{ ...tdStyle, borderBottom: i === (activeTab === "daily" ? dailyRows : activeTab === "weekly" ? weeklyRows : monthlyRows).length - 1 ? "none" : "1px solid #E0E0E0" }}>
-                        {row.bike}
-                      </td>
-                      <td
-                        style={{
-                          ...tdStyle,
-                          borderBottom: i === (activeTab === "daily" ? dailyRows : activeTab === "weekly" ? weeklyRows : monthlyRows).length - 1 ? "none" : "1px solid #E0E0E0",
-                        }}
-                      >
+                      {row.bike}
+                    </td>
+                    <td
+                      style={{
+                        padding: "14px 20px",
+                        borderBottom: i === rows.length - 1 ? "none" : "1px solid #E0E0E0",
+                      }}
+                    >
+                      <span className="type-price-table">{row.rate}</span>
+                    </td>
+                    <td
+                      className="type-small"
+                      style={{
+                        padding: "14px 20px",
+                        borderBottom: i === rows.length - 1 ? "none" : "1px solid #E0E0E0",
+                        color: "#0A0A0A",
+                      }}
+                    >
+                      {"saving" in row ? (
                         <span
+                          className="type-badge"
                           style={{
-                            fontFamily: "var(--font-barlow-condensed), sans-serif",
-                            fontSize: 20,
-                            fontWeight: 700,
-                            color: "#0A0A0A",
+                            border: "1px solid #0A0A0A",
+                            padding: "3px 8px",
                           }}
                         >
-                          {row.rate}
+                          {row.saving}
                         </span>
-                      </td>
-                      <td
-                        style={{
-                          ...tdStyle,
-                          borderBottom: i === (activeTab === "daily" ? dailyRows : activeTab === "weekly" ? weeklyRows : monthlyRows).length - 1 ? "none" : "1px solid #E0E0E0",
-                        }}
-                      >
-                        {"saving" in row ? (
-                          <span
-                            style={{
-                              fontSize: 10,
-                              letterSpacing: "0.08em",
-                              textTransform: "uppercase",
-                              border: "1px solid #0A0A0A",
-                              padding: "2px 7px",
-                              fontWeight: 600,
-                            }}
-                          >
-                            {row.saving}
-                          </span>
-                        ) : (
-                          row.includes
-                        )}
-                      </td>
-                    </tr>
-                  )
-                )}
+                      ) : (
+                        row.includes
+                      )}
+                    </td>
+                  </tr>
+                ))}
               </tbody>
             </table>
           </div>
         </motion.div>
       </AnimatePresence>
 
-      <p style={{ marginTop: 24, fontSize: 14, color: "#777777", fontWeight: 300 }}>
+      <p
+        className="type-small"
+        style={{ marginTop: 24, color: "#777777" }}
+      >
         Free delivery within 10km. Small fee for longer distances — ask us for details.
       </p>
     </section>

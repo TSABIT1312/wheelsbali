@@ -3,7 +3,6 @@ export default function BikeDetailLoading() {
   return (
     <div
       style={{
-        fontFamily: 'var(--font-barlow), sans-serif',
         background: '#FFFFFF',
       }}
     >

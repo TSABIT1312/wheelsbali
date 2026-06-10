@@ -36,10 +36,10 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
         background: "#FFFFFF",
         borderBottom: "1px solid #E0E0E0",
         position: "relative",
-        fontFamily: "var(--font-barlow), sans-serif",
+        overflow: "hidden",
       }}
     >
-      {/* Top tag */}
+      {/* Eyebrow tag — top right */}
       <div
         className="hero-tag-wrap"
         style={{
@@ -53,12 +53,8 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
         }}
       >
         <span
-          className="hero-tag"
-          style={{
-            textTransform: "uppercase",
-            color: "#777777",
-            whiteSpace: "nowrap",
-          }}
+          className="hero-tag type-badge"
+          style={{ color: "#777777", whiteSpace: "nowrap" }}
         >
           Bali&apos;s trusted motorbike rental
         </span>
@@ -71,13 +67,14 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.7, ease: [0.25, 0.1, 0.25, 1] }}
           style={{
-            fontFamily: "var(--font-barlow-condensed), sans-serif",
-            fontSize: "clamp(72px, 14vw, 180px)",
-            fontWeight: 800,
-            fontStyle: "italic",
-            lineHeight: 0.9,
-            letterSpacing: "-0.02em",
+            fontFamily: "var(--ff-brand)",
+            fontSize: "clamp(44px, 11vw, 136px)",
+            fontWeight: 700,
+            lineHeight: 0.93,
+            letterSpacing: "-0.06em",
             color: "#0A0A0A",
+            transform: "skewX(-45deg)",
+            textShadow: "1px 0 0 #0A0A0A, 0.5px 0.5px 0 rgba(10,10,10,0.4)",
             marginBottom: 40,
           }}
         >
@@ -102,13 +99,8 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
           }}
         >
           <p
-            style={{
-              fontSize: 17,
-              color: "#333333",
-              maxWidth: 420,
-              fontWeight: 300,
-              lineHeight: 1.7,
-            }}
+            className="type-body"
+            style={{ color: "#333333", maxWidth: 420 }}
           >
             {subtext}
           </p>
@@ -126,14 +118,11 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
               href={WA_URL}
               target="_blank"
               rel="noopener noreferrer"
+              className="type-btn"
               style={{
                 background: "#0A0A0A",
                 color: "#FFFFFF",
                 padding: "14px 32px",
-                fontSize: 13,
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
                 textDecoration: "none",
                 display: "inline-block",
                 transition: "opacity 0.2s",
@@ -149,14 +138,11 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
             </a>
             <a
               href="#fleet"
+              className="type-btn"
               style={{
                 background: "transparent",
                 color: "#0A0A0A",
                 padding: "13px 32px",
-                fontSize: 13,
-                fontWeight: 500,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
                 textDecoration: "none",
                 border: "1px solid #0A0A0A",
                 display: "inline-block",
@@ -192,26 +178,10 @@ export default function Hero({ data }: { data?: ContentHero | null }) {
         >
           {stats.map((stat) => (
             <div key={stat.label}>
+              <div className="type-stat">{stat.num}</div>
               <div
-                style={{
-                  fontFamily: "var(--font-barlow-condensed), sans-serif",
-                  fontSize: 48,
-                  fontWeight: 700,
-                  lineHeight: 1,
-                  letterSpacing: "-0.02em",
-                  color: "#0A0A0A",
-                }}
-              >
-                {stat.num}
-              </div>
-              <div
-                style={{
-                  fontSize: 12,
-                  letterSpacing: "0.1em",
-                  textTransform: "uppercase",
-                  color: "#777777",
-                  marginTop: 4,
-                }}
+                className="type-badge"
+                style={{ color: "#777777", marginTop: 6 }}
               >
                 {stat.label}
               </div>

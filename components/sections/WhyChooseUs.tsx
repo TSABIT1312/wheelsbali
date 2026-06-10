@@ -51,38 +51,13 @@ export default function WhyChooseUs() {
       style={{
         padding: "88px 6vw",
         background: "#F5F5F5",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      {/* Section label */}
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         Why choose us
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 20,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 20 }}>
         Simple. Reliable. Delivered to you.
       </h2>
 
@@ -110,21 +85,18 @@ export default function WhyChooseUs() {
             }}
           >
             <div
-              style={{
-                fontFamily: "var(--font-barlow-condensed), sans-serif",
-                fontSize: 13,
-                fontWeight: 600,
-                letterSpacing: "0.1em",
-                color: "#777777",
-                marginBottom: 16,
-              }}
+              className="type-badge"
+              style={{ color: "#AAAAAA", marginBottom: 20 }}
             >
               {item.num}
             </div>
-            <h3 style={{ fontSize: 17, fontWeight: 600, marginBottom: 8, color: "#0A0A0A" }}>
+            <h3
+              className="type-sub"
+              style={{ fontSize: 17, marginBottom: 10 }}
+            >
               {item.title}
             </h3>
-            <p style={{ fontSize: 14, color: "#777777", lineHeight: 1.65, fontWeight: 300 }}>
+            <p className="type-small" style={{ color: "#777777" }}>
               {item.desc}
             </p>
           </motion.div>

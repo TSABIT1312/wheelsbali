@@ -13,7 +13,6 @@ export default function NotFound() {
         minHeight: '100vh',
         display: 'flex',
         flexDirection: 'column',
-        fontFamily: 'var(--font-barlow), sans-serif',
         background: '#FFFFFF',
       }}
     >
@@ -29,17 +28,10 @@ export default function NotFound() {
       >
         <Link
           href="/"
-          style={{
-            fontFamily: 'var(--font-barlow-condensed), sans-serif',
-            fontWeight: 800,
-            fontStyle: 'italic',
-            fontSize: 22,
-            letterSpacing: '-0.02em',
-            color: '#0A0A0A',
-            textDecoration: 'none',
-          }}
+          className="type-sub"
+          style={{ fontSize: 18, color: '#0A0A0A', textDecoration: 'none' }}
         >
-          WHEELS BALI
+          Wheels Bali
         </Link>
       </header>
 
@@ -54,50 +46,19 @@ export default function NotFound() {
           padding: '80px 6vw',
         }}
       >
-        <div
-          style={{
-            fontSize: 11,
-            letterSpacing: '0.15em',
-            textTransform: 'uppercase',
-            color: '#777777',
-            marginBottom: 20,
-            display: 'flex',
-            alignItems: 'center',
-            gap: 12,
-          }}
-        >
-          <span
-            style={{ display: 'block', width: 32, height: 1, background: '#777777' }}
-          />
+        <div className="type-eyebrow" style={{ marginBottom: 20 }}>
           404
         </div>
 
-        <h1
-          style={{
-            fontFamily: 'var(--font-barlow-condensed), sans-serif',
-            fontSize: 'clamp(56px, 10vw, 120px)',
-            fontWeight: 800,
-            fontStyle: 'italic',
-            lineHeight: 0.9,
-            letterSpacing: '-0.02em',
-            color: '#0A0A0A',
-            marginBottom: 24,
-          }}
-        >
+        <h1 className="type-hero" style={{ marginBottom: 24 }}>
           Page not
           <br />
           found.
         </h1>
 
         <p
-          style={{
-            fontSize: 16,
-            color: '#777777',
-            fontWeight: 300,
-            maxWidth: 400,
-            lineHeight: 1.7,
-            marginBottom: 40,
-          }}
+          className="type-body"
+          style={{ color: '#777777', maxWidth: 400, marginBottom: 40 }}
         >
           The page you&apos;re looking for doesn&apos;t exist or has been moved.
         </p>
@@ -105,31 +66,27 @@ export default function NotFound() {
         <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
           <Link
             href="/"
+            className="type-btn"
             style={{
               background: '#0A0A0A',
               color: '#FFFFFF',
               padding: '13px 28px',
-              fontSize: 13,
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
               textDecoration: 'none',
+              display: 'inline-block',
             }}
           >
             Back to home
           </Link>
           <Link
             href="/#fleet"
+            className="type-btn"
             style={{
               background: 'transparent',
               color: '#0A0A0A',
               padding: '12px 28px',
-              fontSize: 13,
-              fontWeight: 500,
-              letterSpacing: '0.08em',
-              textTransform: 'uppercase',
               textDecoration: 'none',
               border: '1px solid #0A0A0A',
+              display: 'inline-block',
             }}
           >
             Browse bikes

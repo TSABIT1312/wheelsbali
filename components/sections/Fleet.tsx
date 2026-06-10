@@ -45,7 +45,6 @@ export default function Fleet({
       style={{
         padding: "88px 6vw",
         background: "#FFFFFF",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       {/* Header */}
@@ -60,46 +59,13 @@ export default function Fleet({
         }}
       >
         <div>
-          <div
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.15em",
-              textTransform: "uppercase",
-              color: "#777777",
-              marginBottom: 20,
-              display: "flex",
-              alignItems: "center",
-              gap: 12,
-            }}
-          >
-            <span
-              style={{ display: "block", width: 32, height: 1, background: "#777777" }}
-            />
+          <div className="type-eyebrow" style={{ marginBottom: 20 }}>
             Our bikes
           </div>
-          <h2
-            style={{
-              fontFamily: "var(--font-barlow-condensed), sans-serif",
-              fontSize: "clamp(36px, 5vw, 60px)",
-              fontWeight: 700,
-              fontStyle: "italic",
-              lineHeight: 1.0,
-              letterSpacing: "-0.01em",
-              marginBottom: 12,
-              color: "#0A0A0A",
-            }}
-          >
+          <h2 className="type-section" style={{ marginBottom: 12 }}>
             Choose your ride.
           </h2>
-          <p
-            style={{
-              fontSize: 16,
-              color: "#333333",
-              fontWeight: 300,
-              maxWidth: 480,
-              lineHeight: 1.75,
-            }}
-          >
+          <p className="type-body" style={{ color: "#333333", maxWidth: 480 }}>
             From lightweight automatics to adventure bikes — we have the right
             bike for every rider.
           </p>
@@ -171,17 +137,14 @@ export default function Fleet({
                 )}
                 {moto.tag && (
                   <span
+                    className="type-badge"
                     style={{
                       position: "absolute",
                       top: 16,
                       left: 16,
-                      fontSize: 10,
-                      letterSpacing: "0.12em",
-                      textTransform: "uppercase",
                       background: "#0A0A0A",
                       color: "#FFFFFF",
                       padding: "5px 10px",
-                      fontWeight: 600,
                       zIndex: 1,
                     }}
                   >
@@ -192,27 +155,13 @@ export default function Fleet({
 
               {/* Body */}
               <div style={{ padding: 24 }}>
-                <h3
-                  style={{
-                    fontFamily: "var(--font-barlow-condensed), sans-serif",
-                    fontSize: 26,
-                    fontWeight: 700,
-                    fontStyle: "italic",
-                    marginBottom: 4,
-                    letterSpacing: "-0.01em",
-                    color: "#0A0A0A",
-                  }}
-                >
+                <h3 className="type-card-title" style={{ marginBottom: 4 }}>
                   {moto.name}
                 </h3>
                 {subtitle && (
                   <p
-                    style={{
-                      fontSize: 13,
-                      color: "#777777",
-                      marginBottom: 20,
-                      letterSpacing: "0.02em",
-                    }}
+                    className="type-caption"
+                    style={{ color: "#777777", marginBottom: 20, letterSpacing: "0.02em" }}
                   >
                     {subtitle}
                   </p>
@@ -242,24 +191,12 @@ export default function Fleet({
                         textAlign: "center",
                       }}
                     >
-                      <span
-                        style={{
-                          fontFamily: "var(--font-barlow-condensed), sans-serif",
-                          fontSize: 20,
-                          fontWeight: 700,
-                          display: "block",
-                          color: "#0A0A0A",
-                        }}
-                      >
+                      <span className="type-price" style={{ display: "block" }}>
                         {p.amt}
                       </span>
                       <span
-                        style={{
-                          fontSize: 10,
-                          color: "#777777",
-                          letterSpacing: "0.08em",
-                          textTransform: "uppercase",
-                        }}
+                        className="type-badge"
+                        style={{ color: "#777777" }}
                       >
                         {p.per}
                       </span>
@@ -271,6 +208,7 @@ export default function Fleet({
                 <div style={{ display: "flex", gap: 8 }}>
                   <Link
                     href={`/bikes/${moto.id}`}
+                    className="type-btn-sm"
                     style={{
                       flex: 1,
                       display: "block",
@@ -278,23 +216,16 @@ export default function Fleet({
                       padding: "10px 12px",
                       background: "transparent",
                       color: "#0A0A0A",
-                      fontSize: 12,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      fontWeight: 500,
                       textDecoration: "none",
                       border: "1px solid #0A0A0A",
                       transition: "all 0.2s",
-                      fontFamily: "var(--font-barlow), sans-serif",
                     }}
                     onMouseEnter={(e) => {
-                      (e.currentTarget as HTMLElement).style.background =
-                        "#0A0A0A";
+                      (e.currentTarget as HTMLElement).style.background = "#0A0A0A";
                       (e.currentTarget as HTMLElement).style.color = "#FFFFFF";
                     }}
                     onMouseLeave={(e) => {
-                      (e.currentTarget as HTMLElement).style.background =
-                        "transparent";
+                      (e.currentTarget as HTMLElement).style.background = "transparent";
                       (e.currentTarget as HTMLElement).style.color = "#0A0A0A";
                     }}
                   >
@@ -304,6 +235,7 @@ export default function Fleet({
                     href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="type-btn-sm"
                     style={{
                       flex: 1,
                       display: "block",
@@ -311,13 +243,8 @@ export default function Fleet({
                       padding: "10px 12px",
                       background: "#0A0A0A",
                       color: "#FFFFFF",
-                      fontSize: 12,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
-                      fontWeight: 500,
                       textDecoration: "none",
                       transition: "opacity 0.2s",
-                      fontFamily: "var(--font-barlow), sans-serif",
                     }}
                     onMouseEnter={(e) =>
                       ((e.currentTarget as HTMLElement).style.opacity = "0.7")
@@ -336,12 +263,8 @@ export default function Fleet({
       </motion.div>
 
       <p
-        style={{
-          marginTop: 20,
-          fontSize: 13,
-          color: "#777777",
-          fontWeight: 300,
-        }}
+        className="type-caption"
+        style={{ marginTop: 20, color: "#777777" }}
       >
         * Prices in IDR. All rentals include 1 helmet. WhatsApp us for exact
         current pricing and availability.

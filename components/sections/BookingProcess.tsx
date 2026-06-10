@@ -41,37 +41,13 @@ export default function BookingProcess() {
       style={{
         padding: "88px 6vw",
         background: "#FFFFFF",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         Booking process
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 0,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 0 }}>
         How it works.
       </h2>
 
@@ -89,24 +65,13 @@ export default function BookingProcess() {
       >
         {steps.map((step) => (
           <motion.div key={step.num} variants={itemVariants}>
-            <div
-              style={{
-                fontFamily: "var(--font-barlow-condensed), sans-serif",
-                fontSize: 72,
-                fontWeight: 800,
-                fontStyle: "italic",
-                lineHeight: 1,
-                color: "#E0E0E0",
-                marginBottom: 16,
-                letterSpacing: "-0.03em",
-              }}
-            >
+            <div className="type-step-num" style={{ marginBottom: 20 }}>
               {step.num}
             </div>
-            <h3 style={{ fontSize: 16, fontWeight: 600, marginBottom: 8, color: "#0A0A0A" }}>
+            <h3 className="type-sub" style={{ fontSize: 16, marginBottom: 10 }}>
               {step.title}
             </h3>
-            <p style={{ fontSize: 14, color: "#777777", lineHeight: 1.65, fontWeight: 300 }}>
+            <p className="type-small" style={{ color: "#777777" }}>
               {step.desc}
             </p>
           </motion.div>

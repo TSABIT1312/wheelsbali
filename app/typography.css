@@ -1,0 +1,285 @@
+/* ═══════════════════════════════════════════════════════════
+   Wheels Bali — Typography Design System
+   Fonts:
+     Brand Accent  → Syncopate  (Bank Gothic Light BT equivalent)
+     Headings      → Sora SemiBold
+     Body / CTA    → Inter
+   ═══════════════════════════════════════════════════════════ */
+
+/* ── Design Tokens ──────────────────────────────────────────── */
+:root {
+  /* Font families */
+  --ff-brand:   var(--font-syncopate), 'Syncopate', ui-sans-serif, system-ui, sans-serif;
+  --ff-heading: var(--font-sora),      'Sora',      ui-sans-serif, system-ui, sans-serif;
+  --ff-body:    var(--font-inter),     'Inter',     ui-sans-serif, system-ui, sans-serif;
+
+  /* Scale — desktop first */
+  --fs-eyebrow:  11px;
+  --fs-caption:  12px;
+  --fs-small:    14px;
+  --fs-body:     16px;
+  --fs-body-lg:  18px;
+  --fs-card:     24px;
+  --fs-sub:      28px;
+  --fs-section:  48px;
+  --fs-hero:     72px;
+  --fs-btn:      15px;
+
+  /* Weights */
+  --fw-regular:  400;
+  --fw-medium:   500;
+  --fw-semibold: 600;
+
+  /* Tracking */
+  --ls-brand:  0.2em;
+  --ls-badge:  0.15em;
+  --ls-wide:   0.1em;
+  --ls-nav:    0.08em;
+
+  /* Leading */
+  --lh-tight:   1.05;
+  --lh-snug:    1.2;
+  --lh-heading: 1.15;
+  --lh-body:    1.7;
+}
+
+/* Responsive scale */
+@media (max-width: 1024px) {
+  :root {
+    --fs-hero:    56px;
+    --fs-section: 40px;
+  }
+}
+@media (max-width: 768px) {
+  :root {
+    --fs-hero:    40px;
+    --fs-section: 32px;
+    --fs-sub:     24px;
+  }
+}
+@media (max-width: 374px) {
+  :root {
+    --fs-hero:    34px;
+    --fs-section: 28px;
+  }
+}
+
+/* ── Eyebrow / Brand Accent  (Bank Gothic role) ─────────────── */
+
+/* With decorative rule before it */
+.type-eyebrow {
+  font-family:    var(--ff-brand);
+  font-size:      var(--fs-eyebrow);
+  font-weight:    var(--fw-regular);
+  letter-spacing: var(--ls-brand);
+  text-transform: uppercase;
+  color:          #777777;
+  display:        flex;
+  align-items:    center;
+  gap:            12px;
+}
+.type-eyebrow::before {
+  content:    '';
+  display:    block;
+  width:      32px;
+  height:     1px;
+  background: currentColor;
+  flex-shrink: 0;
+}
+
+/* Inline badge — no leading rule */
+.type-badge {
+  font-family:    var(--ff-brand);
+  font-size:      var(--fs-eyebrow);
+  font-weight:    var(--fw-regular);
+  letter-spacing: var(--ls-badge);
+  text-transform: uppercase;
+}
+
+/* Footer column labels (light on dark) */
+.type-footer-label {
+  font-family:    var(--ff-brand);
+  font-size:      var(--fs-eyebrow);
+  font-weight:    var(--fw-regular);
+  letter-spacing: var(--ls-badge);
+  text-transform: uppercase;
+  color:          rgba(255, 255, 255, 0.9);
+  margin-bottom:  14px;
+  display:        block;
+}
+
+/* Table / pricing header cells */
+.type-th {
+  font-family:    var(--ff-brand);
+  font-size:      10px;
+  font-weight:    var(--fw-regular);
+  letter-spacing: var(--ls-badge);
+  text-transform: uppercase;
+}
+
+/* ── Headings  (Sora SemiBold) ──────────────────────────────── */
+
+.type-hero {
+  font-family:    var(--ff-heading);
+  font-size:      var(--fs-hero);
+  font-weight:    var(--fw-semibold);
+  line-height:    var(--lh-heading);
+  letter-spacing: -0.02em;
+  color:          #0A0A0A;
+}
+
+.type-section {
+  font-family:    var(--ff-heading);
+  font-size:      var(--fs-section);
+  font-weight:    var(--fw-semibold);
+  line-height:    var(--lh-heading);
+  letter-spacing: -0.01em;
+  color:          #0A0A0A;
+}
+
+.type-sub {
+  font-family:    var(--ff-heading);
+  font-size:      var(--fs-sub);
+  font-weight:    var(--fw-semibold);
+  line-height:    var(--lh-snug);
+  color:          #0A0A0A;
+}
+
+.type-card-title {
+  font-family:    var(--ff-heading);
+  font-size:      var(--fs-card);
+  font-weight:    var(--fw-semibold);
+  line-height:    var(--lh-snug);
+  color:          #0A0A0A;
+}
+
+/* Large stat/number display */
+.type-stat {
+  font-family:    var(--ff-heading);
+  font-size:      48px;
+  font-weight:    var(--fw-semibold);
+  line-height:    1;
+  letter-spacing: -0.02em;
+  color:          #0A0A0A;
+}
+
+/* Price amounts in cards */
+.type-price {
+  font-family:    var(--ff-heading);
+  font-size:      20px;
+  font-weight:    var(--fw-semibold);
+  line-height:    1;
+  color:          #0A0A0A;
+}
+
+/* Price amounts in detail pages */
+.type-price-lg {
+  font-family:    var(--ff-heading);
+  font-size:      28px;
+  font-weight:    var(--fw-semibold);
+  line-height:    1;
+  color:          #0A0A0A;
+}
+
+/* Section heading in pricing table */
+.type-price-table {
+  font-family:    var(--ff-heading);
+  font-size:      20px;
+  font-weight:    var(--fw-semibold);
+  line-height:    1;
+  color:          #0A0A0A;
+}
+
+/* Step counter numbers (decorative) */
+.type-step-num {
+  font-family:    var(--ff-heading);
+  font-size:      72px;
+  font-weight:    var(--fw-semibold);
+  line-height:    1;
+  letter-spacing: -0.03em;
+  color:          #E0E0E0;
+}
+
+/* ── Body Text  (Inter Regular) ─────────────────────────────── */
+
+.type-body-lg {
+  font-family: var(--ff-body);
+  font-size:   var(--fs-body-lg);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.type-body {
+  font-family: var(--ff-body);
+  font-size:   var(--fs-body);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.type-small {
+  font-family: var(--ff-body);
+  font-size:   var(--fs-small);
+  font-weight: var(--fw-regular);
+  line-height: var(--lh-body);
+}
+
+.type-caption {
+  font-family: var(--ff-body);
+  font-size:   var(--fs-caption);
+  font-weight: var(--fw-regular);
+  line-height: 1.6;
+}
+
+/* ── CTA / Buttons  (Inter SemiBold) ────────────────────────── */
+
+.type-btn {
+  font-family:    var(--ff-body);
+  font-size:      var(--fs-btn);
+  font-weight:    var(--fw-semibold);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+.type-btn-sm {
+  font-family:    var(--ff-body);
+  font-size:      13px;
+  font-weight:    var(--fw-semibold);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+}
+
+/* ── Navigation  (Inter Medium) ─────────────────────────────── */
+
+.type-nav {
+  font-family:    var(--ff-body);
+  font-size:      13px;
+  font-weight:    var(--fw-medium);
+  letter-spacing: var(--ls-nav);
+  text-transform: uppercase;
+}
+
+/* ── Form Labels  (Inter Medium, small-caps style) ──────────── */
+
+.type-label {
+  font-family:    var(--ff-body);
+  font-size:      11px;
+  font-weight:    var(--fw-medium);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color:          #777777;
+  display:        block;
+  margin-bottom:  7px;
+}
+
+/* ── Requirements / list sub-headings ───────────────────────── */
+
+.type-list-heading {
+  font-family:    var(--ff-brand);
+  font-size:      11px;
+  font-weight:    var(--fw-regular);
+  letter-spacing: var(--ls-wide);
+  text-transform: uppercase;
+  color:          #777777;
+  margin-bottom:  24px;
+  display:        block;
+}

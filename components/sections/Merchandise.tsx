@@ -28,55 +28,17 @@ export default function MerchandiseSection({
       style={{
         padding: "88px 6vw",
         background: "#F5F5F5",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       {/* Header */}
       <div style={{ marginBottom: 48 }}>
-        <div
-          style={{
-            fontSize: 11,
-            letterSpacing: "0.15em",
-            textTransform: "uppercase",
-            color: "#777777",
-            marginBottom: 20,
-            display: "flex",
-            alignItems: "center",
-            gap: 12,
-          }}
-        >
-          <span
-            style={{
-              display: "block",
-              width: 32,
-              height: 1,
-              background: "#777777",
-            }}
-          />
+        <div className="type-eyebrow" style={{ marginBottom: 20 }}>
           Wheels Bali Gear
         </div>
-        <h2
-          style={{
-            fontFamily: "var(--font-barlow-condensed), sans-serif",
-            fontSize: "clamp(36px, 5vw, 64px)",
-            fontWeight: 700,
-            fontStyle: "italic",
-            lineHeight: 1,
-            letterSpacing: "-0.01em",
-            color: "#0A0A0A",
-          }}
-        >
+        <h2 className="type-section" style={{ marginBottom: 12 }}>
           Ride the brand.
         </h2>
-        <p
-          style={{
-            fontSize: 15,
-            color: "#777777",
-            fontWeight: 300,
-            marginTop: 12,
-            maxWidth: 480,
-          }}
-        >
+        <p className="type-body" style={{ color: "#777777", maxWidth: 480 }}>
           Wheels Bali branded gear — take a piece of the island home.
         </p>
       </div>
@@ -133,16 +95,13 @@ export default function MerchandiseSection({
                 />
                 {item.badge && (
                   <span
+                    className="type-badge"
                     style={{
                       position: "absolute",
                       top: 12,
                       left: 12,
                       background: "#0A0A0A",
                       color: "#FFFFFF",
-                      fontSize: 10,
-                      fontWeight: 500,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
                       padding: "4px 8px",
                     }}
                   >
@@ -160,27 +119,17 @@ export default function MerchandiseSection({
                   flexDirection: "column",
                 }}
               >
-                <div
-                  style={{
-                    fontFamily: "var(--font-barlow-condensed), sans-serif",
-                    fontSize: 20,
-                    fontWeight: 700,
-                    fontStyle: "italic",
-                    color: "#0A0A0A",
-                    letterSpacing: "-0.01em",
-                    lineHeight: 1.1,
-                    marginBottom: 6,
-                  }}
+                <h3
+                  className="type-sub"
+                  style={{ fontSize: 20, marginBottom: 6 }}
                 >
                   {item.name}
-                </div>
+                </h3>
                 {item.description && (
                   <p
+                    className="type-small"
                     style={{
-                      fontSize: 13,
                       color: "#777777",
-                      fontWeight: 300,
-                      lineHeight: 1.5,
                       marginBottom: 12,
                       flex: 1,
                     }}
@@ -190,13 +139,8 @@ export default function MerchandiseSection({
                 )}
                 <div style={{ marginTop: "auto" }}>
                   <div
-                    style={{
-                      fontFamily: "var(--font-barlow-condensed), sans-serif",
-                      fontSize: 22,
-                      fontWeight: 700,
-                      color: "#0A0A0A",
-                      marginBottom: 14,
-                    }}
+                    className="type-price"
+                    style={{ fontSize: 22, marginBottom: 14 }}
                   >
                     Rp {item.price.toLocaleString("id-ID")}
                   </div>
@@ -204,16 +148,13 @@ export default function MerchandiseSection({
                     href={waUrl}
                     target="_blank"
                     rel="noopener noreferrer"
+                    className="type-btn-sm"
                     style={{
                       display: "block",
                       textAlign: "center",
                       padding: "11px 20px",
                       background: "#0A0A0A",
                       color: "#FFFFFF",
-                      fontSize: 11,
-                      fontWeight: 500,
-                      letterSpacing: "0.1em",
-                      textTransform: "uppercase",
                       textDecoration: "none",
                     }}
                   >

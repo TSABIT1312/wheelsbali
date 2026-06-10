@@ -16,7 +16,6 @@ export default function CTAStrip() {
         justifyContent: "space-between",
         gap: 32,
         flexWrap: "wrap",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       <motion.div
@@ -25,20 +24,19 @@ export default function CTAStrip() {
         viewport={{ once: true }}
         transition={{ duration: 0.55 }}
       >
+        <div
+          className="type-eyebrow"
+          style={{ color: "rgba(255,255,255,0.4)", marginBottom: 16 }}
+        >
+          Ready to explore
+        </div>
         <h2
-          style={{
-            fontFamily: "var(--font-barlow-condensed), sans-serif",
-            fontSize: "clamp(32px, 5vw, 56px)",
-            fontWeight: 700,
-            fontStyle: "italic",
-            lineHeight: 1,
-            letterSpacing: "-0.01em",
-            color: "#FFFFFF",
-          }}
+          className="type-section"
+          style={{ color: "#FFFFFF", marginBottom: 10 }}
         >
           Ready to explore Bali?
         </h2>
-        <p style={{ fontSize: 15, opacity: 0.6, marginTop: 8, fontWeight: 300 }}>
+        <p className="type-body" style={{ color: "rgba(255,255,255,0.55)" }}>
           Most bookings confirmed within 30 minutes.
         </p>
       </motion.div>
@@ -54,14 +52,11 @@ export default function CTAStrip() {
           href={WA_URL}
           target="_blank"
           rel="noopener noreferrer"
+          className="type-btn"
           style={{
             background: "#FFFFFF",
             color: "#0A0A0A",
             padding: "14px 32px",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
             textDecoration: "none",
             display: "inline-block",
             transition: "opacity 0.2s",
@@ -78,14 +73,11 @@ export default function CTAStrip() {
         </a>
         <a
           href="#contact"
+          className="type-btn"
           style={{
             background: "transparent",
             color: "rgba(255,255,255,0.7)",
             padding: "13px 32px",
-            fontSize: 13,
-            fontWeight: 500,
-            letterSpacing: "0.08em",
-            textTransform: "uppercase",
             textDecoration: "none",
             border: "1px solid rgba(255,255,255,0.3)",
             display: "inline-block",

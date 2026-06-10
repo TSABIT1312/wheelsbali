@@ -10,22 +10,10 @@ const inputStyle: React.CSSProperties = {
   padding: "10px 14px",
   border: "1px solid #E0E0E0",
   background: "#FFFFFF",
-  fontFamily: "var(--font-barlow), sans-serif",
   fontSize: 14,
   color: "#0A0A0A",
   outline: "none",
   appearance: "none" as const,
-  fontWeight: 300,
-};
-
-const labelStyle: React.CSSProperties = {
-  display: "block",
-  fontSize: 11,
-  letterSpacing: "0.1em",
-  textTransform: "uppercase",
-  fontWeight: 500,
-  color: "#777777",
-  marginBottom: 7,
 };
 
 export default function Contact() {
@@ -67,37 +55,13 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
       style={{
         padding: "88px 6vw",
         background: "#FFFFFF",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         Get in touch
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 0,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 0 }}>
         Book your bike or ask anything.
       </h2>
 
@@ -117,7 +81,10 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
       >
         {/* Left: Info */}
         <div>
-          <p style={{ fontSize: 16, color: "#333333", fontWeight: 300, lineHeight: 1.75, marginBottom: 40 }}>
+          <p
+            className="type-body"
+            style={{ color: "#333333", marginBottom: 40 }}
+          >
             The fastest way is WhatsApp — we usually reply within 30 minutes. Or fill the form and we&apos;ll get back to you.
           </p>
 
@@ -179,10 +146,18 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
                     {method.icon}
                   </span>
                   <div>
-                    <strong style={{ display: "block", fontSize: 14, fontWeight: 500 }}>
+                    <strong
+                      className="type-small"
+                      style={{ display: "block", fontWeight: 500 }}
+                    >
                       {method.title}
                     </strong>
-                    <span style={{ fontSize: 12, color: "#777777" }}>{method.sub}</span>
+                    <span
+                      className="type-caption"
+                      style={{ color: "#777777" }}
+                    >
+                      {method.sub}
+                    </span>
                   </div>
                 </El>
               );
@@ -193,27 +168,25 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
         {/* Right: Form */}
         <div style={{ border: "1px solid #E0E0E0" }}>
           <div style={{ padding: "24px 28px", borderBottom: "1px solid #E0E0E0" }}>
-            <h3
-              style={{
-                fontFamily: "var(--font-barlow-condensed), sans-serif",
-                fontSize: 22,
-                fontWeight: 700,
-                fontStyle: "italic",
-                color: "#0A0A0A",
-              }}
-            >
+            <h3 className="type-sub" style={{ fontSize: 20 }}>
               Quick Inquiry Form
             </h3>
-            <p style={{ fontSize: 13, color: "#777777", marginTop: 4 }}>
+            <p
+              className="type-caption"
+              style={{ color: "#777777", marginTop: 6 }}
+            >
               Fill this in and we&apos;ll WhatsApp you back with availability and pricing.
             </p>
           </div>
 
           <form onSubmit={handleSubmit} style={{ padding: 28 }}>
             {/* Name + WhatsApp */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }} className="form-row">
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}
+              className="form-row"
+            >
               <div>
-                <label style={labelStyle}>Your name</label>
+                <label className="type-label">Your name</label>
                 <input
                   type="text"
                   required
@@ -225,7 +198,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
                 />
               </div>
               <div>
-                <label style={labelStyle}>WhatsApp number</label>
+                <label className="type-label">WhatsApp number</label>
                 <input
                   type="tel"
                   required
@@ -239,9 +212,12 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
             </div>
 
             {/* Dates */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }} className="form-row">
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}
+              className="form-row"
+            >
               <div>
-                <label style={labelStyle}>Start date</label>
+                <label className="type-label">Start date</label>
                 <input
                   type="date"
                   required
@@ -253,7 +229,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
                 />
               </div>
               <div>
-                <label style={labelStyle}>End date</label>
+                <label className="type-label">End date</label>
                 <input
                   type="date"
                   required
@@ -268,7 +244,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
 
             {/* Bike type */}
             <div style={{ marginBottom: 16 }}>
-              <label style={labelStyle}>Bike type</label>
+              <label className="type-label">Bike type</label>
               <select
                 required
                 value={form.bikeType}
@@ -287,7 +263,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
 
             {/* Location */}
             <div style={{ marginBottom: 16 }}>
-              <label style={labelStyle}>Delivery location in Bali</label>
+              <label className="type-label">Delivery location in Bali</label>
               <input
                 type="text"
                 required
@@ -301,9 +277,12 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
             </div>
 
             {/* Rental type + Helmets */}
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }} className="form-row">
+            <div
+              style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 12, marginBottom: 16 }}
+              className="form-row"
+            >
               <div>
-                <label style={labelStyle}>Rental type</label>
+                <label className="type-label">Rental type</label>
                 <select
                   required
                   value={form.rentalType}
@@ -320,7 +299,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
                 </select>
               </div>
               <div>
-                <label style={labelStyle}>Helmets needed</label>
+                <label className="type-label">Helmets needed</label>
                 <select
                   value={form.helmets}
                   onChange={(e) => setForm({ ...form, helmets: e.target.value })}
@@ -337,7 +316,7 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
 
             {/* Notes */}
             <div style={{ marginBottom: 16 }}>
-              <label style={labelStyle}>Anything else we should know?</label>
+              <label className="type-label">Anything else we should know?</label>
               <textarea
                 rows={3}
                 value={form.notes}
@@ -349,7 +328,15 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
             </div>
 
             {/* Checkbox */}
-            <div style={{ display: "flex", alignItems: "flex-start", gap: 10, marginTop: 4, marginBottom: 0 }}>
+            <div
+              style={{
+                display: "flex",
+                alignItems: "flex-start",
+                gap: 10,
+                marginTop: 4,
+                marginBottom: 0,
+              }}
+            >
               <input
                 type="checkbox"
                 required
@@ -357,7 +344,10 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
                 onChange={(e) => setForm({ ...form, licenceConfirm: e.target.checked })}
                 style={{ marginTop: 2, flexShrink: 0 }}
               />
-              <label style={{ fontSize: 12, color: "#777777", fontWeight: 300 }}>
+              <label
+                className="type-caption"
+                style={{ color: "#777777" }}
+              >
                 I confirm I have a valid driving licence / IDP and am legally allowed to ride a motorbike
               </label>
             </div>
@@ -365,17 +355,13 @@ ${form.notes ? `Notes: ${form.notes}` : ""}`;
             {/* Submit */}
             <button
               type="submit"
+              className="type-btn"
               style={{
                 width: "100%",
                 padding: 14,
                 background: "#0A0A0A",
                 color: "#FFFFFF",
                 border: "none",
-                fontFamily: "var(--font-barlow), sans-serif",
-                fontSize: 12,
-                letterSpacing: "0.12em",
-                textTransform: "uppercase",
-                fontWeight: 500,
                 cursor: "pointer",
                 transition: "opacity 0.2s",
                 marginTop: 16,

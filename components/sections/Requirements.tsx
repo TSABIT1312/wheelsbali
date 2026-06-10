@@ -24,37 +24,13 @@ export default function Requirements() {
       style={{
         padding: "88px 6vw",
         background: "#FFFFFF",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         What you need
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 0,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 0 }}>
         Rental requirements.
       </h2>
 
@@ -75,34 +51,22 @@ export default function Requirements() {
       >
         {/* Documents Needed */}
         <div style={{ background: "#FFFFFF", padding: "40px 36px" }}>
-          <h3
-            style={{
-              fontSize: 13,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#777777",
-              marginBottom: 24,
-              fontWeight: 500,
-            }}
-          >
-            Documents needed
-          </h3>
+          <span className="type-list-heading">Documents needed</span>
           <ul style={{ listStyle: "none" }}>
             {docsNeeded.map((item, i) => (
               <li
                 key={i}
+                className="type-body"
                 style={{
-                  fontSize: 15,
                   padding: "12px 0",
                   borderBottom: i < docsNeeded.length - 1 ? "1px solid #E0E0E0" : "none",
                   display: "flex",
                   alignItems: "flex-start",
                   gap: 12,
-                  fontWeight: 300,
                   color: "#0A0A0A",
                 }}
               >
-                <span style={{ color: "#0A0A0A", fontWeight: 600, flexShrink: 0 }}>—</span>
+                <span style={{ fontWeight: 600, flexShrink: 0 }}>—</span>
                 {item}
               </li>
             ))}
@@ -111,34 +75,22 @@ export default function Requirements() {
 
         {/* What We Provide */}
         <div style={{ background: "#FFFFFF", padding: "40px 36px" }}>
-          <h3
-            style={{
-              fontSize: 13,
-              letterSpacing: "0.1em",
-              textTransform: "uppercase",
-              color: "#777777",
-              marginBottom: 24,
-              fontWeight: 500,
-            }}
-          >
-            What we provide
-          </h3>
+          <span className="type-list-heading">What we provide</span>
           <ul style={{ listStyle: "none" }}>
             {whatWeProvide.map((item, i) => (
               <li
                 key={i}
+                className="type-body"
                 style={{
-                  fontSize: 15,
                   padding: "12px 0",
                   borderBottom: i < whatWeProvide.length - 1 ? "1px solid #E0E0E0" : "none",
                   display: "flex",
                   alignItems: "flex-start",
                   gap: 12,
-                  fontWeight: 300,
                   color: "#0A0A0A",
                 }}
               >
-                <span style={{ color: "#0A0A0A", fontWeight: 600, flexShrink: 0 }}>—</span>
+                <span style={{ fontWeight: 600, flexShrink: 0 }}>—</span>
                 {item}
               </li>
             ))}
@@ -152,18 +104,19 @@ export default function Requirements() {
           marginTop: 24,
           padding: "20px 24px",
           border: "1px solid #0A0A0A",
-          fontSize: 14,
-          fontWeight: 300,
-          color: "#333333",
-          lineHeight: 1.7,
           maxWidth: 680,
         }}
       >
-        <strong style={{ fontWeight: 600, display: "block", marginBottom: 4 }}>
+        <strong
+          className="type-small"
+          style={{ fontWeight: 600, display: "block", marginBottom: 6 }}
+        >
           Licence requirement
         </strong>
-        Riding in Bali requires a valid licence. An International Driving Permit (IDP) is the safest option.
-        If you&apos;re unsure, message us on WhatsApp and we&apos;ll help you figure it out before you book.
+        <p className="type-small" style={{ color: "#333333" }}>
+          Riding in Bali requires a valid licence. An International Driving Permit (IDP) is the safest option.
+          If you&apos;re unsure, message us on WhatsApp and we&apos;ll help you figure it out before you book.
+        </p>
       </div>
     </section>
   );

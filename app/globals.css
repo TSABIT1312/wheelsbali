@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "./typography.css";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -12,11 +13,11 @@
   background: #0A0A0A;
   color: #FFFFFF;
   font-size: 13px;
-  font-weight: 500;
-  letter-spacing: 0.06em;
+  font-weight: 600;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   text-decoration: none;
-  font-family: var(--font-barlow), sans-serif;
+  font-family: var(--ff-body);
 }
 .skip-link:focus {
   left: 8px;
@@ -41,8 +42,9 @@
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
-  --font-condensed: var(--font-barlow-condensed), ui-sans-serif, system-ui, sans-serif;
+  --font-sans:    var(--font-inter),     ui-sans-serif, system-ui, sans-serif;
+  --font-heading: var(--font-sora),      ui-sans-serif, system-ui, sans-serif;
+  --font-brand:   var(--font-syncopate), ui-sans-serif, system-ui, sans-serif;
 }
 
 :root {
@@ -54,6 +56,10 @@
   --gray-mid: #E0E0E0;
   --gray-text: #777777;
   --gray-dark: #333333;
+
+  /* Backwards-compat aliases — admin components still reference these */
+  --font-barlow: var(--font-inter);
+  --font-barlow-condensed: var(--font-sora);
 }
 
 @layer base {
@@ -64,7 +70,7 @@
   }
   html {
     scroll-behavior: smooth;
-    font-family: var(--font-barlow), ui-sans-serif, system-ui, sans-serif;
+    font-family: var(--ff-body);
     font-weight: 400;
     color: var(--black);
     background: var(--white);
@@ -218,7 +224,7 @@
   .admin-image-grid { grid-template-columns: repeat(2, 1fr); }
 }
 
-/* Generic 2-col form grid that collapses on mobile (same as .form-row but admin-scoped) */
+/* Generic 2-col form grid that collapses on mobile */
 .admin-form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
 @media (max-width: 767px) {
   .admin-form-2col { grid-template-columns: 1fr; }
@@ -236,7 +242,7 @@
   .admin-form-price { grid-template-columns: 1fr; }
 }
 
-/* Hide on small mobile (for less critical labels) */
+/* Hide on small mobile */
 @media (max-width: 374px) {
   .admin-hide-xs { display: none !important; }
 }
@@ -252,21 +258,21 @@
   .admin-panel { padding: 20px 16px 24px; }
 }
 
-/* Hero top tag ("Bali's trusted motorbike rental") — shrink on mobile */
+/* Hero top eyebrow tag */
 .hero-tag {
-  font-size: 12px;
-  letter-spacing: 0.12em;
+  font-size: 10px;
+  letter-spacing: 0.2em;
 }
 @media (max-width: 767px) {
   .hero-tag {
-    font-size: 10px;
-    letter-spacing: 0.08em;
+    font-size: 9px;
+    letter-spacing: 0.15em;
   }
 }
 @media (max-width: 374px) {
   .hero-tag {
-    font-size: 9px;
-    letter-spacing: 0.06em;
+    font-size: 8px;
+    letter-spacing: 0.12em;
   }
 }
 .hero-tag-wrap {
@@ -278,9 +284,7 @@
   }
 }
 
-/* Fix mobile-only overlap between Hero subtitle tag and main heading.
-   On mobile, take the tag out of absolute positioning and flow naturally
-   from the top, instead of bottom-anchoring the heading at 90vh. */
+/* Fix mobile-only overlap between Hero subtitle tag and main heading. */
 @media (max-width: 768px) {
   .hero-tag-wrap { position: static !important; }
   #home {

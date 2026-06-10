@@ -39,7 +39,6 @@ export default function Navbar() {
         justifyContent: "space-between",
         height: 64,
         transition: "border-color 0.2s",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       {/* Logo */}
@@ -72,13 +71,10 @@ export default function Navbar() {
           <li key={link.href}>
             <a
               href={link.href}
+              className="type-nav"
               style={{
-                fontSize: 13,
-                letterSpacing: "0.08em",
-                textTransform: "uppercase",
                 color: "#777777",
                 textDecoration: "none",
-                fontWeight: 500,
                 transition: "color 0.2s",
               }}
               onMouseEnter={(e) =>
@@ -99,15 +95,11 @@ export default function Navbar() {
         href={WA_URL}
         target="_blank"
         rel="noopener noreferrer"
-        className="hidden md:inline-block"
+        className="hidden md:inline-block type-btn-sm"
         style={{
           background: "#0A0A0A",
           color: "#FFFFFF",
           padding: "10px 22px",
-          fontSize: 13,
-          fontWeight: 500,
-          letterSpacing: "0.05em",
-          textTransform: "uppercase",
           textDecoration: "none",
           transition: "opacity 0.2s",
           whiteSpace: "nowrap",
@@ -180,15 +172,12 @@ export default function Navbar() {
                 <a
                   href={link.href}
                   onClick={() => setMenuOpen(false)}
+                  className="type-nav"
                   style={{
                     display: "block",
                     padding: "16px 0",
-                    fontSize: 14,
-                    letterSpacing: "0.08em",
-                    textTransform: "uppercase",
                     color: "#0A0A0A",
                     textDecoration: "none",
-                    fontWeight: 500,
                   }}
                 >
                   {link.label}
@@ -200,16 +189,13 @@ export default function Navbar() {
             href={WA_URL}
             target="_blank"
             rel="noopener noreferrer"
+            className="type-btn"
             style={{
               display: "block",
               marginTop: 24,
               background: "#0A0A0A",
               color: "#FFFFFF",
               padding: "14px",
-              fontSize: 13,
-              fontWeight: 500,
-              letterSpacing: "0.08em",
-              textTransform: "uppercase",
               textDecoration: "none",
               textAlign: "center",
             }}

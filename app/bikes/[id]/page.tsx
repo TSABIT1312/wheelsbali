@@ -104,7 +104,6 @@ export default async function BikeDetailPage({
     moto.wa_message ||
     `Hi, I'm interested in renting the ${moto.name}. Can you share availability and pricing?`
 
-  // Related bikes: 3 other available bikes
   const { data: relatedData } = await supabase
     .from('motorcycles')
     .select('*, motorcycle_images(*)')
@@ -154,17 +153,13 @@ export default async function BikeDetailPage({
           display: 'flex',
           alignItems: 'center',
           justifyContent: 'space-between',
-          fontFamily: 'var(--font-barlow), sans-serif',
         }}
       >
         <Link
           href="/"
+          className="type-sub"
           style={{
-            fontFamily: 'var(--font-barlow-condensed), sans-serif',
-            fontSize: 22,
-            fontWeight: 800,
-            fontStyle: 'italic',
-            letterSpacing: '-0.01em',
+            fontSize: 18,
             color: '#0A0A0A',
             textDecoration: 'none',
           }}
@@ -173,20 +168,17 @@ export default async function BikeDetailPage({
         </Link>
         <Link
           href="/#fleet"
+          className="type-nav"
           style={{
-            fontSize: 12,
-            letterSpacing: '0.1em',
-            textTransform: 'uppercase',
             color: '#777777',
             textDecoration: 'none',
-            fontWeight: 500,
           }}
         >
           ← All bikes
         </Link>
       </header>
 
-      <main id="main-content" style={{ fontFamily: 'var(--font-barlow), sans-serif', background: '#FFFFFF' }}>
+      <main id="main-content" style={{ background: '#FFFFFF' }}>
         {/* Hero: image + info */}
         <div
           className="bike-detail-hero"
@@ -198,7 +190,6 @@ export default async function BikeDetailPage({
         >
           {/* Left: image gallery */}
           <div>
-            {/* Primary image */}
             <div
               style={{
                 width: '100%',
@@ -233,7 +224,6 @@ export default async function BikeDetailPage({
               )}
             </div>
 
-            {/* Thumbnails */}
             {images.length > 1 && (
               <div
                 style={{
@@ -269,15 +259,12 @@ export default async function BikeDetailPage({
           <div style={{ paddingTop: 8 }}>
             {moto.tag && (
               <span
+                className="type-badge"
                 style={{
                   display: 'inline-block',
-                  fontSize: 10,
-                  letterSpacing: '0.12em',
-                  textTransform: 'uppercase',
                   background: '#0A0A0A',
                   color: '#FFFFFF',
                   padding: '5px 10px',
-                  fontWeight: 600,
                   marginBottom: 16,
                 }}
               >
@@ -285,42 +272,22 @@ export default async function BikeDetailPage({
               </span>
             )}
 
-            <h1
-              style={{
-                fontFamily: 'var(--font-barlow-condensed), sans-serif',
-                fontSize: 'clamp(40px, 5vw, 64px)',
-                fontWeight: 800,
-                fontStyle: 'italic',
-                lineHeight: 0.95,
-                letterSpacing: '-0.02em',
-                color: '#0A0A0A',
-                marginBottom: 8,
-              }}
-            >
+            <h1 className="type-hero" style={{ marginBottom: 10 }}>
               {moto.name}
             </h1>
 
             {subtitle && (
               <p
-                style={{
-                  fontSize: 14,
-                  color: '#777777',
-                  marginBottom: 8,
-                  letterSpacing: '0.02em',
-                }}
+                className="type-small"
+                style={{ color: '#777777', marginBottom: 8, letterSpacing: '0.02em' }}
               >
                 {subtitle}
               </p>
             )}
 
             <p
-              style={{
-                fontSize: 13,
-                color: '#AAAAAA',
-                letterSpacing: '0.08em',
-                textTransform: 'uppercase',
-                marginBottom: 32,
-              }}
+              className="type-badge"
+              style={{ color: '#AAAAAA', marginBottom: 32 }}
             >
               {CATEGORY_LABEL[moto.category] ?? moto.category}
             </p>
@@ -349,26 +316,10 @@ export default async function BikeDetailPage({
                     textAlign: 'center',
                   }}
                 >
-                  <div
-                    style={{
-                      fontFamily: 'var(--font-barlow-condensed), sans-serif',
-                      fontSize: 28,
-                      fontWeight: 700,
-                      color: '#0A0A0A',
-                      lineHeight: 1,
-                      marginBottom: 4,
-                    }}
-                  >
+                  <div className="type-price-lg" style={{ marginBottom: 6 }}>
                     {formatIDR(tier.amount)}
                   </div>
-                  <div
-                    style={{
-                      fontSize: 10,
-                      color: '#777777',
-                      letterSpacing: '0.1em',
-                      textTransform: 'uppercase',
-                    }}
-                  >
+                  <div className="type-badge" style={{ color: '#777777' }}>
                     {tier.label}
                   </div>
                 </div>
@@ -376,12 +327,8 @@ export default async function BikeDetailPage({
             </div>
 
             <p
-              style={{
-                fontSize: 12,
-                color: '#AAAAAA',
-                marginBottom: 28,
-                fontWeight: 300,
-              }}
+              className="type-caption"
+              style={{ color: '#AAAAAA', marginBottom: 28 }}
             >
               Prices in IDR. Includes 1 helmet. Ask about long-term discounts.
             </p>
@@ -391,31 +338,30 @@ export default async function BikeDetailPage({
               href={`https://wa.me/${WA_NUMBER}?text=${encodeURIComponent(waMsg)}`}
               target="_blank"
               rel="noopener noreferrer"
+              className="type-btn"
               style={{
                 display: 'block',
                 textAlign: 'center',
                 padding: '16px 32px',
                 background: '#0A0A0A',
                 color: '#FFFFFF',
-                fontSize: 13,
-                letterSpacing: '0.1em',
-                textTransform: 'uppercase',
-                fontWeight: 500,
                 textDecoration: 'none',
                 marginBottom: 12,
                 transition: 'opacity 0.2s',
               }}
+              onMouseEnter={(e) =>
+                ((e.currentTarget as HTMLElement).style.opacity = '0.8')
+              }
+              onMouseLeave={(e) =>
+                ((e.currentTarget as HTMLElement).style.opacity = '1')
+              }
             >
               Book via WhatsApp
             </a>
 
             <p
-              style={{
-                fontSize: 12,
-                color: '#777777',
-                textAlign: 'center',
-                fontWeight: 300,
-              }}
+              className="type-caption"
+              style={{ color: '#777777', textAlign: 'center' }}
             >
               Delivery to your hotel or villa · No hidden fees
             </p>
@@ -430,35 +376,10 @@ export default async function BikeDetailPage({
               borderTop: '1px solid #E0E0E0',
             }}
           >
-            <div
-              style={{
-                fontSize: 11,
-                letterSpacing: '0.15em',
-                textTransform: 'uppercase',
-                color: '#777777',
-                marginBottom: 20,
-                display: 'flex',
-                alignItems: 'center',
-                gap: 12,
-              }}
-            >
-              <span
-                style={{ display: 'block', width: 32, height: 1, background: '#777777' }}
-              />
+            <div className="type-eyebrow" style={{ marginBottom: 20 }}>
               More bikes
             </div>
-            <h2
-              style={{
-                fontFamily: 'var(--font-barlow-condensed), sans-serif',
-                fontSize: 'clamp(28px, 4vw, 44px)',
-                fontWeight: 700,
-                fontStyle: 'italic',
-                lineHeight: 1.0,
-                letterSpacing: '-0.01em',
-                color: '#0A0A0A',
-                marginBottom: 32,
-              }}
-            >
+            <h2 className="type-section" style={{ marginBottom: 32, fontSize: 36 }}>
               You might also like.
             </h2>
 
@@ -518,19 +439,10 @@ export default async function BikeDetailPage({
                       )}
                     </div>
                     <div style={{ padding: '16px 20px' }}>
-                      <div
-                        style={{
-                          fontFamily: 'var(--font-barlow-condensed), sans-serif',
-                          fontSize: 20,
-                          fontWeight: 700,
-                          fontStyle: 'italic',
-                          color: '#0A0A0A',
-                          marginBottom: 2,
-                        }}
-                      >
+                      <div className="type-card-title" style={{ fontSize: 20, marginBottom: 4 }}>
                         {r.name}
                       </div>
-                      <div style={{ fontSize: 12, color: '#777777' }}>
+                      <div className="type-caption" style={{ color: '#777777' }}>
                         from {formatIDR(r.price_day)} / day
                       </div>
                     </div>
@@ -552,21 +464,12 @@ export default async function BikeDetailPage({
           justifyContent: 'space-between',
           flexWrap: 'wrap',
           gap: 16,
-          fontFamily: 'var(--font-barlow), sans-serif',
         }}
       >
-        <span
-          style={{
-            fontFamily: 'var(--font-barlow-condensed), sans-serif',
-            fontSize: 18,
-            fontWeight: 700,
-            fontStyle: 'italic',
-            color: '#FFFFFF',
-          }}
-        >
+        <span className="type-sub" style={{ fontSize: 18, color: '#FFFFFF' }}>
           Wheels Bali
         </span>
-        <span style={{ fontSize: 12, color: '#777777', fontWeight: 300 }}>
+        <span className="type-caption" style={{ color: '#777777' }}>
           © {new Date().getFullYear()} Wheels Bali. All rights reserved.
         </span>
       </footer>

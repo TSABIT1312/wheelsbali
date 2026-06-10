@@ -89,37 +89,13 @@ export default function FAQ({ faqs }: { faqs?: ContentFAQ[] }) {
       style={{
         padding: "88px 6vw",
         background: "#FFFFFF",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         FAQ
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 0,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 0 }}>
         Common questions.
       </h2>
 
@@ -130,6 +106,7 @@ export default function FAQ({ faqs }: { faqs?: ContentFAQ[] }) {
             <div key={faq.id} style={{ borderBottom: "1px solid #E0E0E0" }}>
               <button
                 onClick={() => setOpenIndex(isOpen ? null : i)}
+                className="type-body"
                 style={{
                   width: "100%",
                   textAlign: "left",
@@ -140,8 +117,6 @@ export default function FAQ({ faqs }: { faqs?: ContentFAQ[] }) {
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "space-between",
-                  fontFamily: "var(--font-barlow), sans-serif",
-                  fontSize: 15,
                   fontWeight: 500,
                   color: "#0A0A0A",
                   gap: 16,
@@ -182,13 +157,8 @@ export default function FAQ({ faqs }: { faqs?: ContentFAQ[] }) {
                     style={{ overflow: "hidden" }}
                   >
                     <p
-                      style={{
-                        padding: "0 0 20px",
-                        fontSize: 14,
-                        color: "#777777",
-                        lineHeight: 1.75,
-                        fontWeight: 300,
-                      }}
+                      className="type-small"
+                      style={{ padding: "0 0 20px", color: "#777777" }}
                     >
                       {faq.answer}
                     </p>

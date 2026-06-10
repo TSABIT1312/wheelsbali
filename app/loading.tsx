@@ -3,7 +3,6 @@ export default function HomeLoading() {
   return (
     <div
       style={{
-        fontFamily: 'var(--font-barlow), sans-serif',
         background: '#FFFFFF',
       }}
     >

@@ -24,7 +24,6 @@ export default function Footer() {
         background: "#0A0A0A",
         color: "rgba(255,255,255,0.5)",
         padding: "56px 6vw 28px",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
       <div
@@ -44,37 +43,28 @@ export default function Footer() {
             alt="Wheels Bali"
             width={140}
             height={48}
-            style={{ objectFit: "contain", filter: "invert(1)", marginBottom: 12 }}
+            style={{ objectFit: "contain", filter: "invert(1)", marginBottom: 16 }}
           />
-          <p style={{ fontSize: 13, maxWidth: 200, lineHeight: 1.6, fontWeight: 300 }}>
+          <p
+            className="type-small"
+            style={{ color: "rgba(255,255,255,0.5)", maxWidth: 200 }}
+          >
             Your trusted motorbike and scooter rental in Bali. Delivering freedom, one ride at a time.
           </p>
         </div>
 
         {/* Navigation */}
         <div>
-          <h4
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.9)",
-              marginBottom: 14,
-              fontWeight: 500,
-            }}
-          >
-            Navigation
-          </h4>
+          <span className="type-footer-label">Navigation</span>
           <ul style={{ listStyle: "none" }}>
             {navLinks.map((link) => (
               <li key={link.href} style={{ marginBottom: 9 }}>
                 <a
                   href={link.href}
+                  className="type-small"
                   style={{
-                    fontSize: 13,
                     color: "rgba(255,255,255,0.5)",
                     textDecoration: "none",
-                    fontWeight: 300,
                     transition: "color 0.2s",
                   }}
                   onMouseEnter={(e) =>
@@ -93,18 +83,7 @@ export default function Footer() {
 
         {/* Contact */}
         <div>
-          <h4
-            style={{
-              fontSize: 11,
-              letterSpacing: "0.12em",
-              textTransform: "uppercase",
-              color: "rgba(255,255,255,0.9)",
-              marginBottom: 14,
-              fontWeight: 500,
-            }}
-          >
-            Contact
-          </h4>
+          <span className="type-footer-label">Contact</span>
           <ul style={{ listStyle: "none" }}>
             {contactLinks.map((link) => (
               <li key={link.href} style={{ marginBottom: 9 }}>
@@ -112,11 +91,10 @@ export default function Footer() {
                   href={link.href}
                   target={link.href.startsWith("http") ? "_blank" : undefined}
                   rel={link.href.startsWith("http") ? "noopener noreferrer" : undefined}
+                  className="type-small"
                   style={{
-                    fontSize: 13,
                     color: "rgba(255,255,255,0.5)",
                     textDecoration: "none",
-                    fontWeight: 300,
                     transition: "color 0.2s",
                   }}
                   onMouseEnter={(e) =>
@@ -135,13 +113,11 @@ export default function Footer() {
             href="https://maps.google.com/?q=Jl.+Gunung+Lumut+No.188D,+Padangsambian+Klod,+Denpasar+Barat,+Bali+80117"
             target="_blank"
             rel="noopener noreferrer"
+            className="type-small"
             style={{
               display: "block",
-              fontSize: 13,
               color: "rgba(255,255,255,0.5)",
               textDecoration: "none",
-              fontWeight: 300,
-              lineHeight: 1.6,
               maxWidth: 220,
               marginTop: 4,
               transition: "color 0.2s",
@@ -172,8 +148,12 @@ export default function Footer() {
           gap: 8,
         }}
       >
-        <span style={{ fontSize: 12 }}>© {new Date().getFullYear()} Wheels Bali. All rights reserved.</span>
-        <span style={{ fontSize: 12 }}>Denpasar, Bali, Indonesia</span>
+        <span className="type-caption" style={{ color: "rgba(255,255,255,0.4)" }}>
+          © {new Date().getFullYear()} Wheels Bali. All rights reserved.
+        </span>
+        <span className="type-caption" style={{ color: "rgba(255,255,255,0.4)" }}>
+          Denpasar, Bali, Indonesia
+        </span>
       </div>
     </footer>
   );

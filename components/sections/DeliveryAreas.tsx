@@ -29,40 +29,16 @@ export default function DeliveryAreas() {
       style={{
         padding: "88px 6vw",
         background: "#F5F5F5",
-        fontFamily: "var(--font-barlow), sans-serif",
       }}
     >
-      <div
-        style={{
-          fontSize: 11,
-          letterSpacing: "0.15em",
-          textTransform: "uppercase",
-          color: "#777777",
-          marginBottom: 20,
-          display: "flex",
-          alignItems: "center",
-          gap: 12,
-        }}
-      >
-        <span style={{ display: "block", width: 32, height: 1, background: "#777777" }} />
+      <div className="type-eyebrow" style={{ marginBottom: 20 }}>
         Delivery areas
       </div>
 
-      <h2
-        style={{
-          fontFamily: "var(--font-barlow-condensed), sans-serif",
-          fontSize: "clamp(36px, 5vw, 60px)",
-          fontWeight: 700,
-          fontStyle: "italic",
-          lineHeight: 1.0,
-          letterSpacing: "-0.01em",
-          marginBottom: 12,
-          color: "#0A0A0A",
-        }}
-      >
+      <h2 className="type-section" style={{ marginBottom: 12 }}>
         We cover all of Bali.
       </h2>
-      <p style={{ fontSize: 16, color: "#333333", fontWeight: 300, maxWidth: 500, lineHeight: 1.75 }}>
+      <p className="type-body" style={{ color: "#333333", maxWidth: 500 }}>
         Not sure if we cover your area? Just ask — we almost certainly do.
       </p>
 
@@ -87,18 +63,15 @@ export default function DeliveryAreas() {
             style={{ background: "#F5F5F5", padding: "28px 20px" }}
           >
             <h3
-              style={{
-                fontFamily: "var(--font-barlow-condensed), sans-serif",
-                fontSize: 22,
-                fontWeight: 700,
-                fontStyle: "italic",
-                marginBottom: 4,
-                color: "#0A0A0A",
-              }}
+              className="type-sub"
+              style={{ fontSize: 20, marginBottom: 6 }}
             >
               {area.name}
             </h3>
-            <p style={{ fontSize: 12, color: "#777777", letterSpacing: "0.02em" }}>
+            <p
+              className="type-caption"
+              style={{ color: "#777777", letterSpacing: "0.02em" }}
+            >
               {area.sub}
             </p>
           </motion.div>
